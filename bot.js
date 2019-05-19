@@ -537,7 +537,7 @@ msg.delete();
 })
 })
 NormalBc.on("collect", r => {
-  message.channel.send(`:white_check_mark: Done`).then(m => m.delete(5000));
+  message.channel.send(`Done :white_check_mark:`).then(m => m.delete(5000));
 message.guild.members.forEach(m => {
 m.send(args);
 msg.delete();
