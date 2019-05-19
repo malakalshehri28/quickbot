@@ -66,7 +66,7 @@ client.on('guildMemberAdd', member => {
 
 
 client.on('guildMemberAdd', member=> {
-    member.addRole(member.guild.roles.find("name","Users."));
+    member.addRole(member.guild.roles.find("name","user"));
     });
 
 
@@ -275,7 +275,7 @@ client.on('message', message => {
     }).then(invite =>
       message.author.sendMessage(invite.url)
     )
-  message.channel.send("***Private Link Send***")
+  message.channel.send("**Private Link Send**")
 
 message.author.send(`**مدة الرابط : يوم
  استخدامات الرابط : 5**`)
@@ -343,9 +343,9 @@ client.on('message', message => {
  
  if(!message.channel.guild) return message.reply('** This command only for servers**');
          
- if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return message.reply("**:x: You Don't Have ` BAN_MEMBERS ` Permission**");
+ if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return message.reply("**You Don't Have BAN_MEMBERS Permission**");
  
- if(!message.guild.member(client.user).hasPermission("BAN_MEMBERS")) return message.reply("**:x: I Don't Have ` BAN_MEMBERS ` Permission**");
+ if(!message.guild.member(client.user).hasPermission("BAN_MEMBERS")) return message.reply("**I Don't Have BAN_MEMBERS Permission**");
  
  let user = message.mentions.users.first();
  
@@ -355,9 +355,9 @@ client.on('message', message => {
  
  if (message.mentions.users.size < 1) return message.channel.sendEmbed(embed)
  
- if (!message.guild.member(user).bannable) return message.reply("**:x:I Don't Have Permission For Ban This User**");
+ if (!message.guild.member(user).bannable) return message.reply("**I Don't Have Permission For Ban This User**");
  
- if(!time.match(/[1-60][s,m,h,d,w]/g))  return message.channel.send(':x: This Time Is Incorrect')
+ if(!time.match(/[1-60][s,m,h,d,w]/g))  return message.channel.send('**This Time Is Incorrect**')
  
  if(!Reason)  {
  
@@ -437,9 +437,9 @@ client.on('message', message => {
  
   if(!message.channel.guild) return message.reply('** This command only for servers**');
          
-  if(!message.guild.member(message.author).hasPermission("MUTE_MEMBERS")) return message.reply("**:x: You Don't Have ` MUTE_MEMBERS ` Permission**");
+  if(!message.guild.member(message.author).hasPermission("MUTE_MEMBERS")) return message.reply("**You Don't Have MUTE_MEMBERS Permission**");
  
-  if(!message.guild.member(client.user).hasPermission("MUTE_MEMBERS")) return message.reply("**:x: I Don't Have ` MUTE_MEMBERS ` Permission**");
+  if(!message.guild.member(client.user).hasPermission("MUTE_MEMBERS")) return message.reply("**I Don't Have MUTE_MEMBERS Permission**");
  
   let user = message.mentions.users.first();
  
@@ -449,7 +449,7 @@ client.on('message', message => {
  
   if (message.mentions.users.size < 1) return message.channel.sendEmbed(embed)
    
-  if (!message.guild.member(user).bannable) return message.reply("**:x:I Don't Have Permission For Mute This User**");
+  if (!message.guild.member(user).bannable) return message.reply("**I Don't Have Permission For Mute This User**");
  
   if(!Reason)  {
  
@@ -469,7 +469,7 @@ client.on('message', message => {
  
    }
    if(time) {
-    if(!time.match(/[1-60][s,m,h,d,w]/g))  return message.channel.send(':x: This Time Is Incorrect')
+    if(!time.match(/[1-60][s,m,h,d,w]/g))  return message.channel.send('**This Time Is Incorrect**')
  
    setTimeout(() => {
  
@@ -497,6 +497,33 @@ client.on('message', message => {
    }
  
 });
+
+
+client.on('message', message => {
+if(message.content.startsWith(prefix + "unmute")) {
+    let mention = message.mentions.members.first();
+    let role = message.guild.roles.find('name', 'Muted') || message.guild.roles.get(r => r.name === 'Muted');
+    if(!message.member.hasPermission("MANAGE_ROLES")) return message.reply('**You do not have permission**').then(msg => {
+      msg.delete(3500);
+      message.delete(3500);
+    });
+
+    if(!message.guild.member(client.user).hasPermission("MANAGE_ROLES")) return message.reply('**You do not have permission**').then(msg => {
+      msg.delete(3500);
+      message.delete(3500);
+    });
+
+    if(!mention) return message.reply('**منشن الشخص لفك الميوت عنه**').then(msg => {
+      msg.delete(3500);
+      message.delete(3500);
+    });
+
+      mention.removeRole(role);
+      mention.setMute(false);
+      message.channel.send(`**:white_check_mark: ${mention.user.username} unmuted in the server ! :neutral_face:**`);
+  }
+});
+
 
 
 
