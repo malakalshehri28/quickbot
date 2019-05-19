@@ -492,7 +492,7 @@ client.on('message', message => {
  
    }
  
-   message.channel.send(`:white_check_mark: ${user} has been muted ! :zipper_mouth:`)
+   message.channel.send(`**:white_check_mark: ${mention.user.username} has been muted ! :zipper_mouth:**`)
  
    }
  
