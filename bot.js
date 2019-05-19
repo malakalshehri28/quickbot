@@ -71,7 +71,7 @@ client.on('guildMemberAdd', member=> {
 
 
 client.on('message', message => {
-if(message.content.startsWith(prefix + "user")){
+if(message.content.startsWith(prefix + "server")){
   if(!message.guild.member(message.author).hasPermission("ADMINISTRATOR")) return message.reply(`**Permission to Administrator only**`)
 if(!message.channel.guild) return message.reply(' ');
 const millis = new Date().getTime() - message.guild.createdAt.getTime();
