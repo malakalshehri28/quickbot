@@ -510,7 +510,7 @@ let BcList = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
 .setAuthor(`message ${args}`)
 .setDescription(`broadcast Embed 📝\nbroadcast not Embed ✏\nYou have 1 minute check`)
-if (!args) return message.reply('**يجب عليك كتابة كلمة او جملة لإرسال البرودكاست**');message.channel.send(BcList).then(msg => {
+if (!args) return message.reply('**please Type message**');message.channel.send(BcList).then(msg => {
 msg.react('📝')
 .then(() => msg.react('✏'))
 .then(() =>msg.react('📝'))
