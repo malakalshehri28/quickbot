@@ -520,7 +520,7 @@ if(message.content.startsWith(prefix + "unmute")) {
 
       mention.removeRole(role);
       mention.setMute(false);
-      message.channel.send(`:white_check_mark: ${user} unmuted in the server ! :neutral_face:`);
+      message.channel.send(`:white_check_mark: ${mention.user.username} unmuted in the server ! :neutral_face:`);
   }
 });
 
