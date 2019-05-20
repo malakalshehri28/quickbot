@@ -9,7 +9,7 @@ client.on('ready', () => {
       console.log(`ON ${client.guilds.size} Servers '     Script By : AJ ' `);
     console.log(`----------------`);
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`Quick Bot.`,"http://twitch.tv//idk");
+client.user.setGame(`Quick cooming soon`,"http://twitch.tv//idk");
 });
 
 
@@ -298,7 +298,7 @@ client.on('message', (message) => {
 
 
 client.on('message', message => {
-    if (message.content.startsWith("رابط")) {
+    if (message.content.startsWith("#link")) {
 
   message.channel.createInvite({
         thing: true,
