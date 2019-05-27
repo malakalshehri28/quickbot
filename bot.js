@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const fs = require("fs")
+const say = JSON.parse(fs.readFileSync('./say.json', 'utf8'))
 var prefix = "#";
 client.on('ready', () => {
    console.log(`----------------`);
@@ -16,7 +17,6 @@ client.user.setActivity('Quick', { type: 'WATCHING' })
 
 
 
-const say = JSON.parse(fs.readFileSync('./say.json', 'utf8'))
 
 client.on("message", message =>
           {
