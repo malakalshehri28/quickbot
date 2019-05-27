@@ -12,6 +12,32 @@ client.on('ready', () => {
 });
 
 
+
+
+client.on("ready", () => {
+client.user.setPresence({
+  status: 'dnd', //الحال
+  game: {
+     type: 0,
+     name: 'quick',    
+     details: `quick`,  
+     url: 'http://twitch.tv/Streammingg',
+     state: `quick`,
+    application_id: '420956479747784715', //ايدي البوت اللي رافع عليه الصور
+     assets: {
+        small_image: `421232881684316160`, //ايدي الصوره الصغيره
+        small_text: 'Hi' ,//الكلام اللي يضهر على الصوره الصغيره
+        large_image: `421233046612869120`, //ايدي الصوره الكبيره
+        large_text: `Hi` } //الكلام اللي يضهر على الصوره الكبيره
+ 
+  }
+    });
+});
+
+
+
+
+
 const invites = {};
 
 const wait = require('util').promisify(setTimeout);
