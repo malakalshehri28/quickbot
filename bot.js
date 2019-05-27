@@ -16,7 +16,7 @@ client.user.setActivity('Quick', { type: 'WATCHING' })
 
 
 
-  if (command === "#say") {
+  if (command === "say") {
        if(!message.member.hasPermission('ADMINISTRATOR')) return;
           message.delete()
     message.channel.sendMessage(args.join(" ")).catch(console.error);
