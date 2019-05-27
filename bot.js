@@ -16,11 +16,14 @@ client.user.setActivity('Quick', { type: 'WATCHING' })
 
 
 
-  if (command === "say") {
-       if(!message.member.hasPermission('ADMINISTRATOR')) return;
-          message.delete()
-    message.channel.sendMessage(args.join(" ")).catch(console.error);
-  }
+client.on('message',function(message){
+    
+    let args = message.content.split(" ").slice(1).join(" ");
+    if(message.content.startsWith(prefix + "say")){
+        if(!args) return;
+        message.channel.send(`** ${args}**`);
+    }
+});
 
 
 
