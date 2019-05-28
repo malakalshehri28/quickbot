@@ -9,7 +9,7 @@ client.on('ready', () => {
       console.log(`ON ${client.guilds.size} Servers '     Script By : AJ ' `);
     console.log(`----------------`);
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setActivity('Quick', { type: 'WATCHING' })
+client.user.setActivity('QuickBot', { type: 'WATCHING' })
 });
 
 
@@ -204,7 +204,7 @@ client.on('message', message => {
         .setTitle('Click Here')
         .setURL(`${omar.avatarURL}`)
         .setImage(`${omar.avatarURL}`)
-        .setFooter('Quick Bot',client.user.avatarURL)
+        .setFooter('QuickBot',client.user.avatarURL)
       message.channel.sendEmbed(embed);
     }
 });
@@ -225,7 +225,7 @@ client.on("message", message => {
         color: 0x06DF00,
         description: ":white_check_mark: **Done Delete Message**",
         footer: {
-          text: "quick" 
+          text: "QuickBot" 
         }
       }}).then(msg => {msg.delete(3000)});
                           }
